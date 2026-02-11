@@ -14,10 +14,9 @@
       background:#ffffff;
       color:#0f172a;
     }
-
     .wrap{ max-width: 980px; margin: 0 auto; }
 
-    /* Container matches the screenshot vibe */
+    /* Outer shell like your screenshot */
     details.prompt{
       border:1px solid #e5e7eb;
       border-radius:10px;
@@ -25,9 +24,9 @@
       overflow:hidden;
     }
 
-    /* The clickable bar */
+    /* Clickable header row */
     details.prompt > summary{
-      list-style:none;               /* remove default marker */
+      list-style:none;
       cursor:pointer;
       padding:18px 20px;
       display:flex;
@@ -39,46 +38,42 @@
       color:#111827;
       user-select:none;
     }
-
-    /* Remove default marker in Safari/Chrome */
     details.prompt > summary::-webkit-details-marker{ display:none; }
 
-    /* Chevron */
+    /* Chevron (points down when closed, up when open) */
     .chev{
       flex:0 0 auto;
       color:#6b7280;
       font-size:18px;
+      line-height:1;
       transform: rotate(0deg);
       transition: transform 180ms ease;
-      line-height:1;
     }
-
-    /* Rotate when open */
     details.prompt[open] .chev{
       transform: rotate(180deg);
     }
 
-    /* Content area */
+    /* Open content area */
     .prompt-content{
-      padding:18px 20px 20px;
+      padding:0;
       background:#ffffff;
       border-top:1px solid #e5e7eb;
     }
 
+    /* Prompt text block (dark slate like screenshot) */
     .prompt-content pre{
       margin:0;
-      padding:14px 14px;
-      background:#0b1220;
+      padding:22px 22px;
+      background:#1f2937; /* slate */
       color:#e5e7eb;
-      border-radius:10px;
+      border-radius:0 0 10px 10px;
       overflow:auto;
-      font-size:13.5px;
-      line-height:1.55;
+      font-size:14px;
+      line-height:1.75;
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       white-space: pre-wrap;
     }
 
-    /* Nice focus ring */
     details.prompt > summary:focus-visible{
       outline:3px solid rgba(37,99,235,.35);
       outline-offset:2px;
@@ -90,20 +85,58 @@
 <body>
   <div class="wrap">
 
-    <!-- Functional dropdown using native <details>/<summary> -->
     <details class="prompt">
       <summary>
         <span>Show Prompt: Test 0, Simple Anatomy Poster</span>
-        <span class="chev" aria-hidden="true">▼</span>
+        <span class="chev" aria-hidden="true">▲</span>
       </summary>
 
-      <!-- Replace this content with your real prompt text -->
       <div class="prompt-content">
-        <pre>
-[PASTE YOUR PROMPT TEXT HERE]
-Example:
-Create a clean medical anatomy poster showing the human thoracic cavity...
-        </pre>
+        <pre>Create a square-format human anatomy educational diagram that prioritizes anatomical accuracy,
+information density, and efficient use of space.
+
+The image must be a multi-panel medical diagram filling at least 85 percent of the square
+canvas, with minimal empty margins and no decorative borders.
+
+At the top center, include the title "HUMAN ANATOMY" in clear, high-contrast lettering that is
+readable at small sizes.
+
+At the center of the image, place a front-facing adult male human figure with skin removed to
+show the muscular system.
+
+The figure should stand upright with arms relaxed at the sides and feet together.
+
+Muscles must be anatomically correct, clearly separated, and accurately proportioned.
+
+The central figure should be the largest and most visually dominant element.
+
+Surrounding the central figure, arrange compact, clearly separated panels showing the
+following systems, all fully visible and not cropped:
+
+• Brain, shown separately with major regions identifiable
+• Skeletal system, full front-facing skeleton
+• Heart, standalone with major vessels
+• Digestive system, from esophagus to intestines
+• Eye, cross-sectional view with internal structures
+• Cardiovascular system, heart with arteries and veins
+• Urinary system, kidneys, ureters, bladder, urethra
+• Secondary muscular detail panel highlighting named muscle groups
+
+Each panel must include legible labels with thin leader lines pointing precisely to anatomical
+structures.
+
+Labels must use correct anatomical terminology with no misspellings and no invented anatomy.
+
+The visual style should be clear medical textbook illustration, flat lighting, neutral
+background, and high clarity.
+
+Do not emphasize paper texture, aging, folds, stains, decorative borders, or faux historical
+elements.
+
+The background must remain visually quiet and must not compete with the anatomy.
+
+The goal is a reference-quality anatomy chart, optimized for clarity, accuracy, and efficient
+use of square space.</pre>
       </div>
     </details>
 
@@ -111,4 +144,3 @@ Create a clean medical anatomy poster showing the human thoracic cavity...
 <script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.9/js/iframeResizer.contentWindow.min.js"></script>
 </body>
 </html>
-
