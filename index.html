@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Test 0 – Prompt Snippet</title>
   <style>
-    /* Minimal reset + page wrapper */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
@@ -13,27 +12,18 @@
       color: #333;
       background: #fff;
     }
+
     .snippet-container{
-      max-width: 900px;
+      max-width: 980px;
       margin: 0 auto;
       padding: 40px 20px;
     }
 
-    /* Heading that appears below the prompt */
-    h2 {
-      font-size: 2em;
-      line-height: 1.3;
-      margin: 1.5em 0 0.8em;
-      color: #1a1a1a;
-      border-bottom: 2px solid #e0e0e0;
-      padding-bottom: 0.3em;
-    }
-
-    /* Prompt Collapsible Section (copied from your file) */
+    /* Collapsible prompt */
     .prompt-container {
-      margin: 2em 0;
+      margin: 0 0 28px;
       border: 1px solid #ddd;
-      border-radius: 8px;
+      border-radius: 10px;
       overflow: hidden;
     }
     .prompt-header {
@@ -61,18 +51,44 @@
       overflow: hidden;
       transition: max-height 0.4s ease;
     }
-    .prompt-container.active .prompt-content { max-height: 2000px; }
+    .prompt-container.active .prompt-content { max-height: 2600px; }
 
     .prompt-content pre {
       background: #1e293b;
       padding: 20px;
-      font-family: "Courier New", Courier, monospace;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
       font-size: 0.9em;
       line-height: 1.5;
       white-space: pre-wrap;
       word-wrap: break-word;
       color: #e2e8f0;
       margin: 0;
+    }
+
+    /* Section header + copy (the screenshot part) */
+    h2 {
+      font-size: 2em;
+      line-height: 1.25;
+      margin: 22px 0 14px;
+      color: #111;
+    }
+
+    .section-copy p {
+      margin: 0 0 18px;
+      font-size: 1.02em;
+      color: #2b2b2b;
+    }
+
+    .section-copy .subhead {
+      font-weight: 800;
+      margin-top: 22px;
+      margin-bottom: 10px;
+      color: #111;
+    }
+
+    .section-copy strong {
+      font-weight: 800;
+      color: #111;
     }
   </style>
 </head>
@@ -126,8 +142,53 @@ The goal is a reference-quality anatomy chart, optimized for clarity, accuracy, 
       </div>
     </div>
 
-    <!-- The header below (as in your screenshot) -->
+    <!-- Screenshot section -->
     <h2>Why Ghost and AIMAGE Sat This One Out</h2>
+
+    <div class="section-copy">
+      <p class="subhead">Ghost Human Baseline: No poster, on purpose.</p>
+
+      <p>
+        This warm-up prompt is the kind of assignment AI loves, and human studios should refuse unless a
+        client is paying for it. Ghost is a production shop with deadlines, reviews, and client priorities.
+        Spending real artist hours to create a polished, information-dense anatomy poster purely for a benchmark
+        would be an expensive distraction from billable work. That's the core advantage AI keeps pressing on:
+        <strong>speed.</strong>
+      </p>
+
+      <p>
+        AI can generate a dozen poster variations in minutes, while a human team would need hours or days to do it
+        properly, and then still go through the usual accuracy review cycle. That's exactly how AI starts winning
+        the early rounds. It gets you something usable fast, even if it's not perfect. Once these tools reliably
+        pass a "medical accuracy Turing test," where the output is indistinguishable from expert work to the
+        non-expert viewer, most human artists won't be replaced outright. They'll be pushed upstream into higher
+        leverage roles like creative direction, prompt and pipeline design, and downstream into quality control,
+        fact-checking, and correction passes. In other words: fewer people making images from scratch, more people
+        supervising, correcting, and approving.
+      </p>
+
+      <p class="subhead">AIMAGE: No poster because it's not trained for this format.</p>
+
+      <p>
+        AIMAGE is not a general-purpose, do-anything image generator. It depends on Ghost's reference library and
+        training data. If Ghost hasn't fed it thousands of examples of dense, labeled, textbook-style anatomy posters,
+        then this specific assignment is outside its learned distribution. It might produce something poster-like,
+        but it would be guesswork and style imitation rather than a confident reproduction of a familiar format.
+      </p>
+
+      <p>
+        That limitation is important, and it's also fair. Domain-tuned models like AIMAGE are usually excellent inside
+        their lane and unremarkable outside it. So for this test, AIMAGE sat out because the goal was to stress-test
+        general instruction following, layout discipline, and label behavior on a poster format that wasn't part of its
+        training foundation.
+      </p>
+
+      <p>
+        So the warm-up results are "AI vs AI" by design. Not because Ghost couldn't make the poster, but because making
+        it would miss the point. The whole reason this comparison matters is that AI can afford to do experiments humans
+        can't justify doing.
+      </p>
+    </div>
 
   </div>
 
@@ -136,6 +197,5 @@ The goal is a reference-quality anatomy chart, optimized for clarity, accuracy, 
       element.classList.toggle('active');
     }
   </script>
-<script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.9/js/iframeResizer.contentWindow.min.js"></script>
 </body>
 </html>
